@@ -1,5 +1,15 @@
-//https://github.com/karpathy/tsnejs/blob/master/tsne.js
+/*
+Ted Moore
+ted@tedmooremusic.com
+www.tedmooremusic.com
+May 29, 2019
 
+tSNE for use in SuperCollider (client side only)
+ported from this javascript code:
+
+https://github.com/karpathy/tsnejs/blob/master/tsne.js
+
+*/
 // create main global object
 TSNE {
 	var /*return_v,
@@ -26,11 +36,6 @@ TSNE {
 		epsilon = epsilon_; // learning rate
 
 		iter = 0;
-
-		/*		// return 0 mean unit standard deviation random number
-
-		return_v = false;
-		v_val = 0.0;*/
 	}
 
 	// utility function
@@ -41,24 +46,6 @@ TSNE {
 			Error(message).throw;
 		});
 	}
-
-	/*	gaussRandom {
-	var u, v, r, c;
-	if(return_v,{
-	return_v = false;
-	^v_val;
-	});
-	u = (2*1.0.rand)-1;
-	v = (2*1.0.rand)-1;
-	r = u*u + v*v;
-	if(r == 0 || r > 1,{
-	^this.gaussRandom;
-	});
-	c = ((-2*r.log)/r).sqrt;
-	v_val = v*c; // cache this for next function call for efficiency
-	return_v = true;
-	^(u*c);
-	}*/
 
 	// return random normal number
 	randn {
@@ -342,8 +329,7 @@ TSNE {
 			});
 		});
 
-		//if(this.iter%100===0) console.log('iter ' + this.iter + ', cost: ' + cost);
-		^cost; // return current cost
+		^cost;
 	}
 
 	// for debugging: gradient check
